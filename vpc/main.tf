@@ -52,28 +52,28 @@ locals {
   aws_service_endpoints = {
     gateway = merge(
       {
-        dynamodb = format("com.amazonaws.%s.dynamodb", data.aws_region.current.name)
-        s3       = format("com.amazonaws.%s.s3", data.aws_region.current.name)
+        dynamodb = format("com.amazonaws.%s.dynamodb", data.aws_region.current.region)
+        s3       = format("com.amazonaws.%s.s3", data.aws_region.current.region)
       },
       var.custom_service_endpoints.gateway
     )
     interface = merge(
       {
-        cloudwatch_logs          = format("com.amazonaws.%s.logs", data.aws_region.current.name)
-        dms                      = format("com.amazonaws.%s.dms", data.aws_region.current.name)
-        ec2_messages             = format("com.amazonaws.%s.ec2messages", data.aws_region.current.name)
-        ecr_api                  = format("com.amazonaws.%s.ecr.api", data.aws_region.current.name)
-        ecr_docker               = format("com.amazonaws.%s.ecr.dkr", data.aws_region.current.name)
-        firehose                 = format("com.amazonaws.%s.kinesis-firehose", data.aws_region.current.name)
-        kms                      = format("com.amazonaws.%s.kms", data.aws_region.current.name)
-        lambda                   = format("com.amazonaws.%s.lambda", data.aws_region.current.name)
-        rds                      = format("com.amazonaws.%s.rds", data.aws_region.current.name)
-        redshift                 = format("com.amazonaws.%s.redshift", data.aws_region.current.name)
-        secrets_manager          = format("com.amazonaws.%s.secretsmanager", data.aws_region.current.name)
-        sns                      = format("com.amazonaws.%s.sns", data.aws_region.current.name)
-        sqs                      = format("com.amazonaws.%s.sqs", data.aws_region.current.name)
-        systems_manager          = format("com.amazonaws.%s.ssm", data.aws_region.current.name)
-        systems_manager_messages = format("com.amazonaws.%s.ssmmessages", data.aws_region.current.name)
+        cloudwatch_logs          = format("com.amazonaws.%s.logs", data.aws_region.current.region)
+        dms                      = format("com.amazonaws.%s.dms", data.aws_region.current.region)
+        ec2_messages             = format("com.amazonaws.%s.ec2messages", data.aws_region.current.region)
+        ecr_api                  = format("com.amazonaws.%s.ecr.api", data.aws_region.current.region)
+        ecr_docker               = format("com.amazonaws.%s.ecr.dkr", data.aws_region.current.region)
+        firehose                 = format("com.amazonaws.%s.kinesis-firehose", data.aws_region.current.region)
+        kms                      = format("com.amazonaws.%s.kms", data.aws_region.current.region)
+        lambda                   = format("com.amazonaws.%s.lambda", data.aws_region.current.region)
+        rds                      = format("com.amazonaws.%s.rds", data.aws_region.current.region)
+        redshift                 = format("com.amazonaws.%s.redshift", data.aws_region.current.region)
+        secrets_manager          = format("com.amazonaws.%s.secretsmanager", data.aws_region.current.region)
+        sns                      = format("com.amazonaws.%s.sns", data.aws_region.current.region)
+        sqs                      = format("com.amazonaws.%s.sqs", data.aws_region.current.region)
+        systems_manager          = format("com.amazonaws.%s.ssm", data.aws_region.current.region)
+        systems_manager_messages = format("com.amazonaws.%s.ssmmessages", data.aws_region.current.region)
       },
       var.custom_service_endpoints.interface
     )
