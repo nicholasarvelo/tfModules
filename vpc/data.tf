@@ -1,6 +1,10 @@
-# This data source retrieves information about the available Availability Zones
-# within the specified AWS region. We only want to work with zones in an
-# 'available' state.
+# Retrieves the current AWS account ID.
+data "aws_caller_identity" "current" {}
+
+# Retrieves the current AWS region.
+data "aws_region" "current" {}
+
+# Retrieves available Availability Zones in the current region.
 data "aws_availability_zones" "this" {
   state = "available"
 }
