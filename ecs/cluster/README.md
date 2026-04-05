@@ -1,7 +1,5 @@
 # ECS Cluster Module
 
-## Design Philosophy
-
 This module creates an ECS cluster with sensible defaults for production workloads. Container Insights is enabled by default, and a shared security group is automatically created to allow intra-cluster communication. Service Connect integration is opt-in via Cloud Map namespace configuration.
 
 ## What Gets Created

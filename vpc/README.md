@@ -1,7 +1,5 @@
 # VPC Module
 
-## Design Philosophy
-
 This module operates on the principle that most VPCs follow predictable patterns. Rather than forcing you to calculate subnet CIDRs manually, it auto-provisions them by default. When you need precise control, you can disable auto-provisioning and specify exact CIDRs.
 
 ## How Auto-Provisioning Works
