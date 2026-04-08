@@ -19,8 +19,8 @@ variable "ecs_cluster" {
     container_insights = optional(string, "enabled")
     name               = map(string)
     service_discovery = object({
-      enable        = bool
-      namespace_arn = string
+      enable        = optional(bool, true)
+      namespace_arn = optional(string)
     })
     vpc = object({
       id   = optional(string)
@@ -38,6 +38,17 @@ variable "ecs_cluster" {
       var.ecs_cluster.container_insights
     )
     error_message = "Valid container insights value is 'enhanced', 'enabled', or 'disabled'"
+  }
+
+  validation {
+    condition = (
+      var.ecs_cluster.service_discovery.enable == false ||
+      (
+        var.ecs_cluster.service_discovery.namespace_arn != null
+        && var.ecs_cluster.service_discovery.namespace_arn != ""
+      )
+    )
+    error_message = "When service discovery is enabled, namespace ARN must be provided."
   }
 }
 

@@ -19,7 +19,7 @@ resource "aws_ecs_cluster" "this" {
 resource "aws_security_group" "this" {
   name = format(
     "%sECSClusterSecurityGroup",
-    var.aws.account.name.camel_case
+    var.ecs_cluster.name.camel_case
   )
 
   description = format(
@@ -31,7 +31,7 @@ resource "aws_security_group" "this" {
   tags = merge({
     Name = format(
       "%sECSClusterSecurityGroup",
-      var.aws.account.name.camel_case
+      var.ecs_cluster.name.camel_case
     )
   }, var.resource_tags)
 

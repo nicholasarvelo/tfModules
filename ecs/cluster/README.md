@@ -20,11 +20,11 @@ The shared security group allows all services within the cluster to communicate 
 inputs = {
   ecs_cluster = {
     name = {
+      camel_case = "ProdApi"
       kebab_case = "prod-api"
     }
     service_discovery = {
-      enable        = false
-      namespace_arn = ""
+      enable = false
     }
     vpc = {
       id   = "vpc-abc123"
@@ -46,10 +46,10 @@ inputs = {
 inputs = {
   ecs_cluster = {
     name = {
+      camel_case = "ProdApi"
       kebab_case = "prod-api"
     }
     service_discovery = {
-      enable        = true
       namespace_arn = "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-abc123"
     }
     vpc = {
@@ -70,11 +70,11 @@ inputs = {
 inputs = {
   ecs_cluster = {
     name = {
+      camel_case = "ProdApi"
       kebab_case = "prod-api"
     }
     service_discovery = {
-      enable        = false
-      namespace_arn = ""
+      enable = false
     }
     vpc = {
       id   = "vpc-abc123"
@@ -105,7 +105,7 @@ Container Insights provides cluster, service, and task-level metrics out of the 
 
 ### Core Settings
 
-- `ecs_cluster.name` - Cluster name as a map with `kebab_case` key
+- `ecs_cluster.name` - Cluster name as a map with `kebab_case` and `camel_case` keys
 - `ecs_cluster.container_insights` - `"enhanced"`, `"enabled"` (default), or `"disabled"`
 - `ecs_cluster.vpc.id` - VPC ID for the shared security group
 - `ecs_cluster.vpc.name` - VPC name tag for lookup
@@ -113,8 +113,8 @@ Container Insights provides cluster, service, and task-level metrics out of the 
 
 ### Service Discovery
 
-- `ecs_cluster.service_discovery.enable` - Enable Service Connect defaults
-- `ecs_cluster.service_discovery.namespace_arn` - Cloud Map namespace ARN
+- `ecs_cluster.service_discovery.enable` - Enable Service Connect defaults (default: `true`)
+- `ecs_cluster.service_discovery.namespace_arn` - Cloud Map namespace ARN (required when enabled)
 
 ### Other
 
